@@ -1,30 +1,40 @@
-#include <stdio.h>
+#include<stdio.h>
+#include<stdlib.h>
 
-void twoSum(int nums[], int size, int target) {
+int* twoSum(int* nums, int numsSize, int target, int* returnSize) {
 
-    for(int i = 0; i < size; i++) {
+    int* result = (int*)malloc(2 * sizeof(int));
 
-        for(int j = i + 1; j < size; j++) {
+    for(int i = 0; i < numsSize; i++)
+    {
+        for(int j = i + 1; j < numsSize; j++)
+        {
+            if(nums[i] + nums[j] == target)
+            {
+                result[0] = i;
+                result[1] = j;
 
-            if(nums[i] + nums[j] == target) {
+                *returnSize = 2;
 
-                printf("Indices: %d %d\n", i, j);
-                return;
+                return result;
             }
         }
     }
 
-    printf("No solution found");
+    *returnSize = 0;
+    return NULL;
 }
-
-int main() {
-
+int main()
+{
     int nums[] = {2, 7, 11, 15};
     int target = 9;
+    int returnSize;
 
-    int size = sizeof(nums) / sizeof(nums[0]);
+    int* ans = twoSum(nums, 4, target, &returnSize);
 
-    twoSum(nums, size, target);
+    printf("[%d, %d]", ans[0], ans[1]);
+
+    free(ans);
 
     return 0;
 }
