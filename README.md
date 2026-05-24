@@ -1,2 +1,2 @@
 # DSA-Practice
-Daily DS Questions
+DSA and Algorithms
