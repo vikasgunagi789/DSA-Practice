@@ -29,7 +29,7 @@ int main()
     int i, j;
     printf("Enter the number of items in the Knapsack : ");
     scanf("%d", &n);
-    printf("Enter the value of the item of %d", n);
+    printf("Enter the value of the item of %d : ", n);
     for(i = 1; i <= n; i++)
         scanf("%d", &val[i]);
     printf("Enter the weight of the item : ");
